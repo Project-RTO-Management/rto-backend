@@ -33,9 +33,9 @@ public class UserTest {
 		 *  String userName, String s_d_w, String email, String password, String phoneNo, Role role, Gender gender,
 			LocalDate birthDate, Address permanentAddress, Address correspondAdd
 		 */
-		List<User> list = List.of(
-				new User("Unnati Kurekar","Dnyaneshwar Kurekar","unnati@gmail.com","unnati@123","9689393813",Role.ADMIN,Gender.FEMALE,LocalDate.parse("1996-01-03") )
-				);
+//		List<User> list = List.of(
+//				new User("Unnati Kurekar","Dnyaneshwar Kurekar","unnati@gmail.com","unnati@123","9689393813",Role.ADMIN,Gender.FEMALE,LocalDate.parse("1996-01-03") )
+//				);
 		
 //		List<User> list2 = dao.saveAll(list);
 //		List<Address> adrList = List.of(
