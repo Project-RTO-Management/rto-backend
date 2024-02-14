@@ -16,6 +16,7 @@ import com.app.customexception.NoSuchElementException;
 import com.app.dao.UserDao;
 import com.app.dao.VehRegDAO;
 import com.app.dto.VehRegDTO;
+import com.app.dto.VehRegRenewDTO;
 import com.app.entities.User;
 import com.app.entities.VehicleRegistration;
 
@@ -31,6 +32,9 @@ public UserDao userDao;
 	
 	 @Autowired
 	 public ModelMapper mapper;
+	 
+	 @Autowired
+	 private UserDao userdao;
 	 
 	
 	
@@ -87,6 +91,21 @@ public UserDao userDao;
 			return mapper.map(dao.save(veh), VehRegDTO.class); 
 		}
 
+		//Renew Regiseteration
+				public String generateRegistrationNoNew(Long userId,VehRegRenewDTO vehNewDto) {
+					VehicleRegistration veh=mapper.map(vehNewDto, VehicleRegistration.class);
+					System.out.println(veh.getRegistrationNo());
+					User user = userdao.findById(userId).orElseThrow(()->new NoSuchElementException("user cant fetch"));
+					VehicleRegistration vehical=dao.findById(userId).orElseThrow(()->new NoSuchElementException("user cant fetch"));
+					System.out.println(vehical.getRegistrationNo().toString());
+					
+					//System.out.println(veh.getRegistrationNo().toString().equals(vehical.getRegistrationNo().toString()));
+					
+					veh.setUser(user);
+					dao.save(veh);
+					
+					return veh.getRegistrationNo();
+				}
 
 	    
 	}

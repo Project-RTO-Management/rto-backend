@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.VehRegDTO;
+import com.app.dto.VehRegRenewDTO;
 import com.app.service.vehicalRegService;
 
 @RestController
@@ -33,6 +34,14 @@ public class VehicalRegistrationFormController{
 	{
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.generateRegistrationNo(vehregdto,userId));
 	}
+	 
+	 @PostMapping("/renewReg/{userId}")
+	 public ResponseEntity<?> vehGeneratorNew(@PathVariable Long userId,@RequestBody VehRegRenewDTO vehNewDto)
+		{
+		
+			return ResponseEntity.status(HttpStatus.CREATED).body(service.generateRegistrationNoNew(userId, vehNewDto));
+			
+		}
 }
 
 
