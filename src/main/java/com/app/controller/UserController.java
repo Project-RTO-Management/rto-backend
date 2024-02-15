@@ -25,7 +25,7 @@ import com.app.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")//----> vite+ react app
 @Validated
 public class UserController {
     @Autowired
