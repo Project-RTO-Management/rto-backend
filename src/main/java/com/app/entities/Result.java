@@ -21,11 +21,12 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Result extends BaseEntity {
-@Enumerated(EnumType.STRING)
-private examType examType;
+//@Enumerated(EnumType.STRING)
+//private examType examType;
 
 @Enumerated(EnumType.STRING)
 private Results status;
+
 
 @OneToOne
 @JoinColumn(name="answer_id", nullable = false)

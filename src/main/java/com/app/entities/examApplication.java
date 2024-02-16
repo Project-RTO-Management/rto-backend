@@ -1,13 +1,13 @@
 package com.app.entities;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,11 +25,15 @@ import lombok.ToString;
 @Setter
 @ToString
 public class examApplication extends BaseEntity{
-	@Column(nullable = false)
-	private LocalDate dateOfAppl;
-	@Enumerated(EnumType.STRING)
-	private examType examType;
 
+	@Column(nullable = false,columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Timestamp dateOfAppl=Timestamp.valueOf(LocalDateTime.now());
+	
+//	@Enumerated(EnumType.STRING)
+//	private examType examType;
+
+	
+	
 	@OneToOne
 	@JoinColumn(name="user_id", nullable = false)
 	private User user;

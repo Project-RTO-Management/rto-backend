@@ -87,7 +87,7 @@ public class LicenseServiceImpl implements LicenseService {
 		System.out.println(license.getLearningLicNo());
 		System.out.println(license.getResultStatus());
 	  User user = userDao.findById(userId).orElseThrow(()-> new NoSuchElementException("User not found"));
-		LearningLicenseRegister learn = dao.findById(userId).orElseThrow(()-> new NoSuchElementException("Learning license not found"));
+		LearningLicenseRegister learn = dao.findByUserId(userId).orElseThrow(()-> new NoSuchElementException("Learning license not found"));
 	  System.out.println(learn.getLearningLicenseNo().toString());
 	  boolean b = license.getLearningLicNo().trim().equalsIgnoreCase(learn.getLearningLicenseNo().toString().trim()) ;
 	  System.out.println(b);

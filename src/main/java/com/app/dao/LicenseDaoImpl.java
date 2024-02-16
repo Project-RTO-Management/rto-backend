@@ -8,4 +8,6 @@ import com.app.entities.LearningLicenseRegister;
 public abstract class LicenseDaoImpl implements LicenseDao {
 	@Autowired
 	private LearningLicenseRegister license;
+	
+	
 }
